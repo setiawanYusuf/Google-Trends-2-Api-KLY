@@ -1,0 +1,21 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+body > div.container-fluid {
+  padding: 30px;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+}
+
+footer {
+
+}
+
+footer > p {
+  margin-left: 30px
+}
+
+a {
+  color: #00B7FF;
+}

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1= title
+    <!--p Welcome to #{title}-->
+    form(method='POST' action='/engage')
+        div.form-group
+            label(for='keyword') Keyword: 
+            input.form-control#keyword(type='text', name='keyword', placeholder="Enter keywords")
+        input.btn.btn-primary.btn-submit-keywords(type='submit', value='Submit')

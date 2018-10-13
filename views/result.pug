@@ -1,0 +1,68 @@
+extends layout
+
+block content
+    label.dataChart(data-values=valuesJson data-times=timesJson data-keyword=keywordJson style= 'display:none')
+    div.container-fluid
+        div.row
+            h1 #{title} - #{date}
+        br
+        if dataLength > 1
+            div.row#chart
+            br
+            - for (var i = 0; i < dataLength; ++i) {
+                div.row
+                    label#keyword(for='keyword') Keyword: #{keyword[i]}
+                div.row
+                    label(for='firstTenMinutes') First 10 minutes: #{averageFirst[i]}
+                div.row
+                    label(for='lastTenMinutes') Last 10 minutes: #{averageLast[i]}
+                div.row
+                    label(for='quotient') Quotient: #{finalAverage[i]}
+                div.row(style= 'overflow-x:auto')
+                    table.table.table-dark(style='width:100%', border='1')
+                        thead.thead-dark
+                            tr
+                                th= 'Datetime'
+                                each time in times
+                                    th= time
+                        tbody
+                            tr
+                                td= 'Count'
+                                each value in values[i]
+                                    td= value
+                br
+
+                if (i != (dataLength-1)) 
+                    hr
+                    br
+                else
+                    br
+            - }
+                
+        else
+            div.row
+                label#keyword(for='keyword') Keyword: #{keyword}
+            div.row
+                label(for='firstTenMinutes') First 10 minutes: #{averageFirst}
+            div.row
+                label(for='lastTenMinutes') Last 10 minutes: #{averageLast}
+            div.row
+                label(for='quotient') Quotient: #{finalAverage}
+            div.row(style= 'overflow-x:auto')
+                table.table.table-dark(style='width:100%', border='1')
+                    thead.thead-dark
+                        tr
+                            th= 'Datetime'
+                            each time in times
+                                th= time
+                    tbody
+                        tr
+                            td= 'Count'
+                            each value in values
+                                td= value
+            br
+            div.row#chart
+        br
+        div.row
+            a(href='/') Back
+            
