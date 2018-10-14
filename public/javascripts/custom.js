@@ -55,7 +55,7 @@ $(document).ready(function(){
 
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
+    var mm = today.getMonth(); //January is 0!
     var yyyy = today.getFullYear();
     var timesArray = times[0].split(':');
     var dateNow = Date.UTC(yyyy, mm, dd, timesArray[0], timesArray[1]);
